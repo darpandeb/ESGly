@@ -1,0 +1,85 @@
+{%load static%}<!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="{%url 'index'%}" >
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Sectoral</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{%url 'gentab'%}">
+              <i class="bi bi-circle"></i><span>Energy</span>
+            </a>
+          </li>
+          <li>
+            <a href="{%url 'datatab'%}">
+              <i class="bi bi-circle"></i><span>Consumer Durables</span>
+            </a>
+          </li>
+          <li>
+            <a href="{%url 'pharma'%}">
+              <i class="bi bi-circle"></i><span>Pharmaceuticals</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">-->
+<!--          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>-->
+<!--        </a>-->
+<!--        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">-->
+<!--          <li>-->
+<!--            <a href="{%url 'indiatab'%}">-->
+<!--              <i class="bi bi-circle"></i><span>Chart.js</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="{%url 'globaltab'%}">-->
+<!--              <i class="bi bi-circle"></i><span>ApexCharts</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="{%url 'chinatab'%}">-->
+<!--              <i class="bi bi-circle"></i><span>ECharts</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </li>&lt;!&ndash; End Charts Nav &ndash;&gt;-->
+
+<!--      Sentiments-->
+      <li class="nav-item">
+        <a class="nav-link " href="{%url 'sentiments'%}" >
+          <i class="bi bi-emoji-smile"></i>
+          <span>Sentiments</span>
+        </a>
+      </li>
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{%url 'profile'%}">
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+
+
+
+
+    </ul>
+
+  </aside><!-- End Sidebar-->

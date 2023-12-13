@@ -1,0 +1,297 @@
+{%extends 'homebase.html'%}
+{%load static%}
+{%block body%}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Opinion Analysis</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{%url 'index'%}">Home</a></li>
+          <li class="breadcrumb-item">Sentiment</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+     <section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-12">
+          <div class="row">
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Total Comments Collected</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-chat-left-text-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>4070</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">Reddit Comments</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Sales Card -->
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Dataset Features </h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-bookmark-check-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>8</h6>
+                      <span class="text-success small pt-1 fw-bold">2</span> <span class="text-muted small pt-2 ps-1">significant</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+            <div class="col-xxl-4 col-xl-12">
+
+              <div class="card info-card customers-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Data Timeline </h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-bar-chart-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>4</h6>
+                      <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">years</span>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+
+<!--      Countries-->
+            <div class="col-12">
+               <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Wordcloud Plot</h5>
+
+              <!-- Radial Bar Chart -->
+              <div id="wordcloud" class="justify-content-center">
+
+                <img src="{% static '' %}assets/img/sentiment.png"/>
+              </div>
+
+
+
+
+              <!-- End Radial Bar Chart -->
+
+            </div>
+          </div>
+            </div>
+<!--            ESG TIME Line-->
+            <div class="col-12">
+              <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sentiment Analysis (by FinBERT) </h5>
+
+              <!-- Area Chart -->
+              <div id="pieChart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new ApexCharts(document.querySelector("#pieChart"), {
+                    series: [3022, 688, 360],
+                    chart: {
+                      height: 350,
+                      type: 'pie',
+                      toolbar: {
+                        show: true
+                      }
+                    },
+                    labels: ['Neutral', 'Postive', 'Negative']
+                  }).render();
+                });
+              </script>
+              <!-- End Area Chart -->
+
+            </div>
+          </div>
+            </div>
+
+
+
+
+            <!-- Reports -->
+
+<!--             Recent Sales -->
+<!--            <div class="col-12">-->
+<!--              <div class="card recent-sales overflow-auto">-->
+
+<!--                <div class="filter">-->
+<!--                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                    <li class="dropdown-header text-start">-->
+<!--                      <h6>Filter</h6>-->
+<!--                    </li>-->
+
+<!--                    <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+
+<!--                <div class="card-body">-->
+<!--                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>-->
+
+<!--                  <table class="table table-borderless datatable">-->
+<!--                    <thead>-->
+<!--                      <tr>-->
+<!--                        <th scope="col">#</th>-->
+<!--                        <th scope="col">Customer</th>-->
+<!--                        <th scope="col">Product</th>-->
+<!--                        <th scope="col">Price</th>-->
+<!--                        <th scope="col">Status</th>-->
+<!--                      </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2457</a></th>-->
+<!--                        <td>Brandon Jacob</td>-->
+<!--                        <td><a href="#" class="text-primary">At praesentium minu</a></td>-->
+<!--                        <td>$64</td>-->
+<!--                        <td><span class="badge bg-success">Approved</span></td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2147</a></th>-->
+<!--                        <td>Bridie Kessler</td>-->
+<!--                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>-->
+<!--                        <td>$47</td>-->
+<!--                        <td><span class="badge bg-warning">Pending</span></td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2049</a></th>-->
+<!--                        <td>Ashleigh Langosh</td>-->
+<!--                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>-->
+<!--                        <td>$147</td>-->
+<!--                        <td><span class="badge bg-success">Approved</span></td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2644</a></th>-->
+<!--                        <td>Angus Grady</td>-->
+<!--                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>-->
+<!--                        <td>$67</td>-->
+<!--                        <td><span class="badge bg-danger">Rejected</span></td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2644</a></th>-->
+<!--                        <td>Raheem Lehner</td>-->
+<!--                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>-->
+<!--                        <td>$165</td>-->
+<!--                        <td><span class="badge bg-success">Approved</span></td>-->
+<!--                      </tr>-->
+<!--                    </tbody>-->
+<!--                  </table>-->
+
+<!--                </div>-->
+
+<!--              </div>-->
+<!--            </div>-->
+            <!-- End Recent Sales -->
+
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">ESG Context Analysis (by FinBERT) </h5>
+
+              <!-- Area Chart -->
+              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      echarts.init(document.querySelector("#trafficChart")).setOption({
+                        tooltip: {
+                          trigger: 'item'
+                        },
+                        legend: {
+                          top: '5%',
+                          left: 'center'
+                        },
+                        series: [{
+                          name: 'Sectors',
+                          type: 'pie',
+                          radius: ['40%', '70%'],
+                          avoidLabelOverlap: false,
+                          label: {
+                            show: false,
+                            position: 'center'
+                          },
+                          emphasis: {
+                            label: {
+                              show: true,
+                              fontSize: '18',
+                              fontWeight: 'bold'
+                            }
+                          },
+                          labelLine: {
+                            show: false
+                          },
+                          data: [{
+                              value: 466,
+                              name: 'Environment'
+                            },
+                            {
+                              value: 3256,
+                              name: 'Social'
+                            },
+                            {
+                              value: 12,
+                              name: 'Governance'
+                            },
+                            {
+                              value: 336,
+                              name: 'None'
+                            }
+                          ]
+                        }]
+                      });
+                    });
+                  </script>
+          </div>
+        </div>
+
+          </div>
+        </div><!-- End Left side columns -->
+
+
+      </div>
+    </section>
+
+  </main>
+
+
+
+{%endblock%}

@@ -1,0 +1,856 @@
+{%extends 'homebase.html'%}
+{%load static%}
+{%block body%}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Pharmaceuticals</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{%url 'index'%}">Home</a></li>
+          <li class="breadcrumb-item">Sectoral</li>
+          <li class="breadcrumb-item active">Pharmaceuticals</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+     <section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-12">
+          <div class="row">
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Total Companies</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-building-check"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>136</h6>
+                      <span class="text-success small pt-1 fw-bold">5</span> <span class="text-muted small pt-2 ps-1">stock indices</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Sales Card -->
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Dataset Features </h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-bookmark-check-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>44</h6>
+                      <span class="text-success small pt-1 fw-bold">4</span> <span class="text-muted small pt-2 ps-1">unique</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+            <div class="col-xxl-4 col-xl-12">
+
+              <div class="card info-card customers-card">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Data Timeline </h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-bar-chart-fill"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>10</h6>
+                      <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">years</span>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+
+<!--      Countries-->
+             <div class="col-12">
+              <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Pie Chart</h5>
+
+              <!-- Pie Chart -->
+              <div id="pieChart" style="min-height: 400px;" class="echart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  echarts.init(document.querySelector("#pieChart")).setOption({
+                    title: {
+                      text: 'Country Count',
+                      subtext : 'Country wise distribution',
+                      left: 'left'
+                    },
+                    tooltip: {
+                      trigger: 'item'
+                    },
+                    legend: {
+                      orient: 'vertical',
+                      left: 'right'
+                    },
+                    series: [{
+                      name: 'Access From',
+                      type: 'pie',
+                      radius: '90%',
+                      data: [{
+                          value: 75,
+                          name: 'USA'
+                        },
+                        {
+                          value: 13,
+                          name: 'Japan'
+                        },
+                        {
+                          value: 31,
+                          name: 'China'
+                        },
+                        {
+                          value: 5,
+                          name: 'India'
+                        },
+                        {
+                          value: 6,
+                          name: 'Germany'
+                        }
+                      ],
+                      emphasis: {
+                        itemStyle: {
+                          shadowBlur: 10,
+                          shadowOffsetX: 0,
+                          shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                      }
+                    }]
+                  });
+                });
+              </script>
+              <!-- End Pie Chart -->
+
+            </div>
+          </div>
+            </div>
+<!--            ESG TIME Line-->
+            <div class="col-12">
+              <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Avg ESG Movement Across Companies </h5>
+
+              <!-- Area Chart -->
+              <div id="areaChart"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  const series = {
+                    "monthDataSeries1": {
+                      "prices": [34.29232472,
+                                 64.28930691,
+                                 44.56292124,
+                                 66.7136103,
+                                 52.34885826,
+                                 62.41826778,
+                                 68.73553968,
+                                 76.65224826,
+                                 37.78291922,
+                                 66.17040539,
+                                 68.66512423,
+                                 66.00945579,
+                                 66.6130168,
+                                 50.15591993,
+                                 58.38446836,
+                                 69.7012373,
+                                 56.94598129,
+                                 62.51886128,
+                                 44.83452369,
+                                 42.00784629,
+                                 62.03601247,
+                                 58.09274721,
+                                 50.75948094,
+                                 62.85081984,
+                                 51.11155819,
+                                 52.32873956,
+                                 54.91399256,
+                                 48.73755155,
+                                 51.28256715,
+                                 71.21013982,
+                                 54.394571	,
+                                 62.72004828,
+                                 43.80846997,
+                                 45.99134896,
+                                 55.86963082,
+                                 57.93179761,
+                                 48.2245247,
+                                 74.00663917,
+                                 43.78835127,
+                                 47.86238809,
+                                 47.08781813,
+                                 73.47349361,
+                                 47.42983603,
+                                 67.06568756,
+                                 51.20209234,
+                                 65.07393622,
+                                 35.09707273,
+                                 78.44281259,
+                                 50.79971834,
+                                 61.16084901,
+                                 66.01951514,
+                                 53.37491198,
+                                 59.65194648,
+                                 64.60114677,
+                                 53.76722664,
+                                 42.15873655,
+                                 50.48787848,
+                                 44.03983503,
+                                 44.99547329,
+                                 60.93954331,
+                                 33.71894176,
+                                 57.35841465,
+                                 54.5619153,
+                                 59.71230259,
+                                 61.74429132,
+                                 55.28618851,
+                                 55.46725682,
+                                 52.51986722,
+                                 49.57247762,
+                                 50.91037119,
+                                 45.64933105,
+                                 48.2647621,
+                                 48.33517755,
+                                 31.97867418,
+                                 35.11719143,
+                                 64.58102807,
+                                 41.34392918,
+                                 43.76823257,
+                                 53.01277537,
+                                 56.60396338,
+                                 51.7754753,
+                                 57.7909667,
+                                 55.74891862,
+                                 55.61814707,
+                                 37.21959561,
+                                 71.17996177,
+                                 57.12704959,
+                                 55.61814707,
+                                 57.6702545,
+                                 43.84870737,
+                                 54.11930389,
+                                 62.49874258,
+                                 33.97042551,
+                                 41.68594709,
+                                 78.35227844,
+                                 44.79428629,
+                                 65.27512323,
+                                 43.80846997,
+                                 64.84257117,
+                                 58.09274721,
+                                 52.11749321,
+                                 53.33467458,
+                                 57.6098984,
+                                 48.11387184,
+                                 59.67206518,
+                                 55.65838447,
+                                 58.15310331,
+                                 52.71099487,
+                                 64.05794186,
+                                 45.05582939,
+                                 62.76028569,
+                                 65.76803139,
+                                 49.97485162,
+                                 56.94598129,
+                                 62.85081984,
+                                 51.28256715,
+                                 54.394571	,
+                                 43.80846997,
+                                 65.07393622,
+                                 35.09707273,
+                                 65.89880294,
+                                 64.60114677,
+                                 33.71894176,
+                                 57.35841465,
+                                 48.2647621,
+                                 35.54974349,
+                                 56.60396338,
+                                 39.67407705,
+                                 55.74891862,
+                                 43.84870737,
+                                 64.84257117],
+                      "dates": ['APHS IS',
+                                 'CIPLA IS',
+                                 'DIVI IS',
+                                 'DRRD IS',
+                                 'SUNP IS',
+                                 'A UN',
+                                 'ABBV UN',
+                                 'ABT UN',
+                                 'ALGN UW',
+                                 'AMGN UW',
+                                 'BAX UN',
+                                 'BDX UN',
+                                 'BIIB UW',
+                                 'BIO UN',
+                                 'BMY UN',
+                                 'BSX UN',
+                                 'CAH UN',
+                                 'CI UN',
+                                 'CNC UN',
+                                 'COO UW',
+                                 'COR UN',
+                                 'CRL UN',
+                                 'CTLT UN',
+                                 'CVS UN',
+                                 'DGX UN',
+                                 'DHR UN',
+                                 'DVA UN',
+                                 'DXCM UW',
+                                 'ELV UN',
+                                 'EW UN',
+                                 'GEHC UW',
+                                 'GILD UW',
+                                 'HCA UN',
+                                 'HOLX UW',
+                                 'HSIC UW',
+                                 'HUM UN',
+                                 'IDXX UW',
+                                 'ILMN UW',
+                                 'INCY UW',
+                                 'IQV UN',
+                                 'ISRG UW',
+                                 'JNJ UN',
+                                 'LH UN',
+                                 'LLY UN',
+                                 'MCK UN',
+                                 'MDT UN',
+                                 'MOH UN',
+                                 'MRK UN',
+                                 'MRNA UW',
+                                 'MTD UN',
+                                 'PFE UN',
+                                 'PODD UW',
+                                 'REGN UW',
+                                 'RMD UN',
+                                 'RVTY UN',
+                                 'STE UN',
+                                 'SYK UN',
+                                 'TECH UW',
+                                 'TFX UN',
+                                 'TMO UN',
+                                 'UHS UN',
+                                 'UNH UN',
+                                 'VRTX UW',
+                                 'VTRS UW',
+                                 'WAT UN',
+                                 'WST UN',
+                                 'XRAY UW',
+                                 'ZBH UN',
+                                 'ZTS UN',
+                                 '000538 CH',
+                                 '000661 CH',
+                                 '000963 CH',
+                                 '002001 CH',
+                                 '002007 CH',
+                                 '002252 CH',
+                                 '002821 CH',
+                                 '300015 CH',
+                                 '300122 CH',
+                                 '300142 CH',
+                                 '300347 CH',
+                                 '300601 CH',
+                                 '300759 CH',
+                                 '300760 CH',
+                                 '300896 CH',
+                                 '600085 CH',
+                                 '600196 CH',
+                                 '600276 CH',
+                                 '600332 CH',
+                                 '600436 CH',
+                                 '600763 CH',
+                                 '601607 CH',
+                                 '603259 CH',
+                                 '603392 CH',
+                                 '688363 CH',
+                                 'BAYN GY',
+                                 'FRE GY',
+                                 'MRK GY',
+                                 'QIA GY',
+                                 'SHL GY',
+                                 'SRT3 GY',
+                                 '4151 JT',
+                                 '4502 JT',
+                                 '4503 JT',
+                                 '4506 JT',
+                                 '4507 JT',
+                                 '4519 JT',
+                                 '4523 JT',
+                                 '4543 JT',
+                                 '4568 JT',
+                                 '4578 JT',
+                                 '4901 JT',
+                                 '7733 JT',
+                                 '7741 JT',
+                                 'CAH UN',
+                                 'CVS UN',
+                                 'ELV UN',
+                                 'GEHC UW',
+                                 'HCA UN',
+                                 'MDT UN',
+                                 'MOH UN',
+                                 'PEAK UN',
+                                 'RMD UN',
+                                 'UHS UN',
+                                 'UNH UN',
+                                 '000963 CH',
+                                 '002027 CH',
+                                 '300347 CH',
+                                 '300413 CH',
+                                 '300760 CH',
+                                 '600763 CH',
+                                 'SHL GY']
+                    }
+                    }
+
+
+                  new ApexCharts(document.querySelector("#areaChart"), {
+                    series: [{
+                      name: "Pharma Sectors",
+                      data: series.monthDataSeries1.prices
+                    }],
+                    chart: {
+                      type: 'area',
+                      height: 350,
+                      zoom: {
+                        enabled: false
+                      }
+                    },
+                    dataLabels: {
+                      enabled: false
+                    },
+                    stroke: {
+                      curve: 'straight'
+                    },
+                    subtitle: {
+                      text: 'ESG Disclosure Scores',
+                      align: 'left'
+                    },
+                    labels: series.monthDataSeries1.dates,
+                    xaxis: {
+                      type: 'text',
+                    },
+                    yaxis: {
+                      opposite: true
+                    },
+                    legend: {
+                      horizontalAlign: 'left'
+                    }
+                  }).render();
+                });
+
+
+              </script>
+              <!-- End Area Chart -->
+
+            </div>
+          </div>
+            </div>
+
+
+
+
+            <!-- Reports -->
+
+<!--             Recent Sales -->
+<!--            <div class="col-12">-->
+<!--              <div class="card recent-sales overflow-auto">-->
+
+<!--                <div class="filter">-->
+<!--                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                    <li class="dropdown-header text-start">-->
+<!--                      <h6>Filter</h6>-->
+<!--                    </li>-->
+
+<!--                    <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+
+<!--                <div class="card-body">-->
+<!--                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>-->
+
+<!--                  <table class="table table-borderless datatable">-->
+<!--                    <thead>-->
+<!--                      <tr>-->
+<!--                        <th scope="col">#</th>-->
+<!--                        <th scope="col">Customer</th>-->
+<!--                        <th scope="col">Product</th>-->
+<!--                        <th scope="col">Price</th>-->
+<!--                        <th scope="col">Status</th>-->
+<!--                      </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2457</a></th>-->
+<!--                        <td>Brandon Jacob</td>-->
+<!--                        <td><a href="#" class="text-primary">At praesentium minu</a></td>-->
+<!--                        <td>$64</td>-->
+<!--                        <td><span class="badge bg-success">Approved</span></td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2147</a></th>-->
+<!--                        <td>Bridie Kessler</td>-->
+<!--                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>-->
+<!--                        <td>$47</td>-->
+<!--                        <td><span class="badge bg-warning">Pending</span></td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2049</a></th>-->
+<!--                        <td>Ashleigh Langosh</td>-->
+<!--                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>-->
+<!--                        <td>$147</td>-->
+<!--                        <td><span class="badge bg-success">Approved</span></td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2644</a></th>-->
+<!--                        <td>Angus Grady</td>-->
+<!--                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>-->
+<!--                        <td>$67</td>-->
+<!--                        <td><span class="badge bg-danger">Rejected</span></td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <th scope="row"><a href="#">#2644</a></th>-->
+<!--                        <td>Raheem Lehner</td>-->
+<!--                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>-->
+<!--                        <td>$165</td>-->
+<!--                        <td><span class="badge bg-success">Approved</span></td>-->
+<!--                      </tr>-->
+<!--                    </tbody>-->
+<!--                  </table>-->
+
+<!--                </div>-->
+
+<!--              </div>-->
+<!--            </div>-->
+            <!-- End Recent Sales -->
+
+            <!-- Top Selling -->
+            <div class="col-12">
+
+              <div class="card top-selling overflow-auto">
+
+<!--                <div class="filter">-->
+<!--                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                    <li class="dropdown-header text-start">-->
+<!--                      <h6>Filter</h6>-->
+<!--                    </li>-->
+
+<!--                    <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+
+                <div class="card-body pb-0">
+                  <h5 class="card-title">Top ESG Scores <span>| past 5 Years</span></h5>
+
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">Year</th>
+                        <th scope="col">Comapny</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Ticker Name</th>
+                        <th scope="col">ESG</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">2022</td>
+                        <td><a href="#" class="text-primary fw-bold">Olympus Corp</a></td>
+                        <td>Japan</td>
+                        <td class="fw-bold">7733 JT</td>
+                        <td>71.0190121718137</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">2021</td>
+                        <td><a href="#" class="text-primary fw-bold">Merck & Co Inc</a></td>
+                        <td>USA</td>
+                        <td class="fw-bold">MRK UN</td>
+                        <td>78.4226938939745</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">2020</td>
+                        <td><a href="#" class="text-primary fw-bold">Merck & Co Inc</a></td>
+                        <td>USA</td>
+                        <td class="fw-bold">MRK UN</td>
+                        <td>78.4428125943064</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">2019</td>
+                        <td><a href="#" class="text-primary fw-bold">Merck & Co Inc</a></td>
+                        <td>USA</td>
+                        <td class="fw-bold">MRK UN</td>
+                        <td>78.161150789659</td>
+                      </tr>
+                      <tr>
+                        <td scope="row">2018</td>
+                        <td><a href="#" class="text-primary fw-bold">Merck & Co Inc</a></td>
+                        <td>USA</td>
+                        <td class="fw-bold">MRK UN</td>
+                        <td>77.8291922341817</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Top Selling -->
+
+          </div>
+        </div><!-- End Left side columns -->
+
+
+
+          <!-- Budget Report -->
+<!--          <div class="card">-->
+<!--            <div class="filter">-->
+<!--              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                <li class="dropdown-header text-start">-->
+<!--                  <h6>Filter</h6>-->
+<!--                </li>-->
+
+<!--                <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+
+<!--            <div class="card-body pb-0">-->
+<!--              <h5 class="card-title">Budget Report <span>| This Month</span></h5>-->
+
+<!--              <div id="budgetChart" style="min-height: 400px;" class="echart"></div>-->
+
+<!--              <script>-->
+<!--                document.addEventListener("DOMContentLoaded", () => {-->
+<!--                  var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({-->
+<!--                    legend: {-->
+<!--                      data: ['Allocated Budget', 'Actual Spending']-->
+<!--                    },-->
+<!--                    radar: {-->
+<!--                      // shape: 'circle',-->
+<!--                      indicator: [{-->
+<!--                          name: 'Sales',-->
+<!--                          max: 6500-->
+<!--                        },-->
+<!--                        {-->
+<!--                          name: 'Administration',-->
+<!--                          max: 16000-->
+<!--                        },-->
+<!--                        {-->
+<!--                          name: 'Information Technology',-->
+<!--                          max: 30000-->
+<!--                        },-->
+<!--                        {-->
+<!--                          name: 'Customer Support',-->
+<!--                          max: 38000-->
+<!--                        },-->
+<!--                        {-->
+<!--                          name: 'Development',-->
+<!--                          max: 52000-->
+<!--                        },-->
+<!--                        {-->
+<!--                          name: 'Marketing',-->
+<!--                          max: 25000-->
+<!--                        }-->
+<!--                      ]-->
+<!--                    },-->
+<!--                    series: [{-->
+<!--                      name: 'Budget vs spending',-->
+<!--                      type: 'radar',-->
+<!--                      data: [{-->
+<!--                          value: [4200, 3000, 20000, 35000, 50000, 18000],-->
+<!--                          name: 'Allocated Budget'-->
+<!--                        },-->
+<!--                        {-->
+<!--                          value: [5000, 14000, 28000, 26000, 42000, 21000],-->
+<!--                          name: 'Actual Spending'-->
+<!--                        }-->
+<!--                      ]-->
+<!--                    }]-->
+<!--                  });-->
+<!--                });-->
+<!--              </script>-->
+
+<!--            </div>-->
+<!--          </div>&lt;!&ndash; End Budget Report &ndash;&gt;-->
+
+          <!-- Website Traffic -->
+<!--          <div class="card">-->
+<!--            <div class="filter">-->
+<!--              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                <li class="dropdown-header text-start">-->
+<!--                  <h6>Filter</h6>-->
+<!--                </li>-->
+
+<!--                <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+
+<!--            <div class="card-body pb-0">-->
+<!--              <h5 class="card-title">Website Traffic <span>| Today</span></h5>-->
+
+<!--              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>-->
+
+<!--              <script>-->
+<!--                document.addEventListener("DOMContentLoaded", () => {-->
+<!--                  echarts.init(document.querySelector("#trafficChart")).setOption({-->
+<!--                    tooltip: {-->
+<!--                      trigger: 'item'-->
+<!--                    },-->
+<!--                    legend: {-->
+<!--                      top: '5%',-->
+<!--                      left: 'center'-->
+<!--                    },-->
+<!--                    series: [{-->
+<!--                      name: 'Access From',-->
+<!--                      type: 'pie',-->
+<!--                      radius: ['40%', '70%'],-->
+<!--                      avoidLabelOverlap: false,-->
+<!--                      label: {-->
+<!--                        show: false,-->
+<!--                        position: 'center'-->
+<!--                      },-->
+<!--                      emphasis: {-->
+<!--                        label: {-->
+<!--                          show: true,-->
+<!--                          fontSize: '18',-->
+<!--                          fontWeight: 'bold'-->
+<!--                        }-->
+<!--                      },-->
+<!--                      labelLine: {-->
+<!--                        show: false-->
+<!--                      },-->
+<!--                      data: [{-->
+<!--                          value: 1048,-->
+<!--                          name: 'Search Engine'-->
+<!--                        },-->
+<!--                        {-->
+<!--                          value: 735,-->
+<!--                          name: 'Direct'-->
+<!--                        },-->
+<!--                        {-->
+<!--                          value: 580,-->
+<!--                          name: 'Email'-->
+<!--                        },-->
+<!--                        {-->
+<!--                          value: 484,-->
+<!--                          name: 'Union Ads'-->
+<!--                        },-->
+<!--                        {-->
+<!--                          value: 300,-->
+<!--                          name: 'Video Ads'-->
+<!--                        }-->
+<!--                      ]-->
+<!--                    }]-->
+<!--                  });-->
+<!--                });-->
+<!--              </script>-->
+
+<!--            </div>-->
+<!--          </div>&lt;!&ndash; End Website Traffic &ndash;&gt;-->
+
+          <!-- News & Updates Traffic -->
+        <div class="col-12">
+          <div class="card">
+<!--            <div class="filter">-->
+<!--              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>-->
+<!--              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">-->
+<!--                <li class="dropdown-header text-start">-->
+<!--                  <h6>Filter</h6>-->
+<!--                </li>-->
+
+<!--                <li><a class="dropdown-item" href="#">Today</a></li>-->
+<!--                <li><a class="dropdown-item" href="#">This Month</a></li>-->
+<!--                <li><a class="dropdown-item" href="#">This Year</a></li>-->
+<!--              </ul>-->
+<!--            </div>-->
+
+            <div class="card-body pb-0">
+              <h5 class="card-title">News &amp; Updates <span>| ESG</span></h5>
+
+              <div class="news">
+                <div class="post-item clearfix">
+                  <img src="{% static '' %}assets/img/energy-1.jpg" alt="">
+                  <h4><a href="#">Renewable Energy Boom Propels ESG Adoption Across Energy Sector</a></h4>
+                  <p>As the global push for sustainable practices intensifies, the energy industry witnesses a surge in ESG adoption, with companies increasingly investing in and transitioning to renewable energy sources to meet environmental standards and investor expectations.</p>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static '' %}assets/img/energy-2.jpg" alt="">
+                  <h4><a href="#">Oil and Gas Giants Accelerate ESG Initiatives Amid Growing Environmental Concerns</a></h4>
+                  <p>Major players in the oil and gas industry are ramping up ESG initiatives to mitigate environmental impact and address climate change concerns. This shift reflects a broader acknowledgment within the sector of the need for sustainable practices and a transition towards cleaner energy solutions</p>
+
+                <div class="post-item clearfix">
+                  <img src="{% static '' %}assets/img/energy-3.jpeg" alt="">
+                  <h4><a href="#">ESG Metrics Gain Prominence in Energy Investment Decisions</a></h4>
+                  <p>Investors in the energy sector prioritize companies with strong Environmental, Social, and Governance (ESG) performance, signaling a paradigm shift where ESG metrics play a pivotal role in shaping investment decisions, as stakeholders demand greater transparency and responsible business practices.</p>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static '' %}assets/img/energy-4.jpeg" alt="">
+                  <h4><a href="#">ESG Regulatory Landscape Evolves: Governments Set Stricter Standards for Energy Companies</a></h4>
+                  <p> Governments worldwide are tightening regulations around ESG criteria in the energy sector, compelling companies to enhance their sustainability efforts. Stricter standards aim to align the industry with global climate goals, promoting responsible resource management and emissions reduction.</p>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static '' %}assets/img/energy-5.jpeg" alt="">
+                  <h4><a href="#">ESG Integration Grows: Companies Embed Sustainability in Strategies</a></h4>
+                  <p>Corporate boards increasingly integrate ESG considerations into core business strategies, signaling a paradigm shift in corporate decision-making.</p>
+                </div>
+
+              </div><!-- End sidebar recent posts-->
+
+            </div>
+          </div><!-- End News & Updates -->
+
+        </div><!-- End Right side columns -->
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+{%endblock%}
