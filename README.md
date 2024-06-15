@@ -2,7 +2,7 @@
 
 As businesses and investors increasingly recognize the importance of integrating ESG considerations into their decision-making processes, it becomes imperative to assess the level of ESG implementation across different sectors. The Project utilizes the vast repository of ESG disclosure data from the Bloomberg database covering global perspectives for comparative analysis. The project has been extended to analyze the public opinion about ESG and Sustainability using a pre-trained large language model that analyzes the textual data from Social media.
 
-
+## Methodology Overview
 ## Model Architecture :
 <img width="637" alt="finbert" src="https://github.com/darpandeb/ESGly/assets/86478640/f1dc02a9-6be3-4bfb-91b6-87f0ecbcd9ab">
 
