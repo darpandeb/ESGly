@@ -9,7 +9,7 @@ As businesses and investors increasingly recognize the importance of integrating
 <img width="637" alt="finbert" src="https://github.com/darpandeb/ESGly/assets/86478640/f1dc02a9-6be3-4bfb-91b6-87f0ecbcd9ab">
 
 ## Results :
-
+<img width="700" alt="Screenshot 2024-06-15 at 3 56 43 PM" src="https://github.com/darpandeb/Sectoral-Analysis-of-ESG-Data-using-AI-models/assets/86478640/7c1d5f1a-7c2f-4435-a027-09380b301976">
 
 ## Screenshots : 
 ![ss1](https://github.com/darpandeb/ESGly/assets/86478640/452c652b-80a8-4287-8e72-066c66129cd2)
