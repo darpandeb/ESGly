@@ -3,7 +3,7 @@
 As businesses and investors increasingly recognize the importance of integrating ESG considerations into their decision-making processes, it becomes imperative to assess the level of ESG implementation across different sectors. The Project utilizes the vast repository of ESG disclosure data from the Bloomberg database covering global perspectives for comparative analysis. Regression Analysis has been done using LSTM model over the period of past 10 years to predict the ESG trend's effect on financial factors. The project has been extended to analyze the public opinion about ESG and Sustainability using a pre-trained large language model that analyzes the textual data from Social media.
 
 ## Methodology Overview
-<img width="365" alt="Screenshot 2024-06-15 at 3 49 42 PM" src="https://github.com/darpandeb/Sectoral-Analysis-of-ESG-Data-using-AI-models/assets/86478640/397ac240-f2e1-4466-b54c-7bee0f17ce95">
+<img width="700" alt="Screenshot 2024-06-15 at 3 49 42 PM" src="https://github.com/darpandeb/Sectoral-Analysis-of-ESG-Data-using-AI-models/assets/86478640/397ac240-f2e1-4466-b54c-7bee0f17ce95">
 
 ## Model Architecture :
 <img width="637" alt="finbert" src="https://github.com/darpandeb/ESGly/assets/86478640/f1dc02a9-6be3-4bfb-91b6-87f0ecbcd9ab">
